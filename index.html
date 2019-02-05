@@ -151,6 +151,32 @@
     </style>
     <script type="text/babel">
       class SpringloadOfficePetOrderForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            email: {
+              value: "",
+              valid: false
+            },
+            password: {
+              value: "",
+              valid: false
+            },
+            colour: {
+              value: "",
+              valid: false
+            },
+            animals: {
+              value: [],
+              valid: false
+            },
+            typeOfTiger: {
+              value: "",
+              valid: true
+            }
+          }
+        }
+        
         render() {
           return (
             <form method='post' action=''>
