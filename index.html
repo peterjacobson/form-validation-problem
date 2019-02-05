@@ -194,15 +194,22 @@
               const colourValid = value != ''
               this.updateField(field, value, colourValid)
               break;
+            case "animal":
+              const animalsCurrentlySelected = this.state.animals.value.includes(value)
+              ? this.state.animals.value.filter( animal => animal !== value)
+              : [...this.state.animals.value, value]
+              const animalsValid = animalsCurrentlySelected.length >= 2
+              this.updateField('animals', animalsCurrentlySelected, animalsValid)
+              break;
             default:
 
           }
         }
 
         updateField = (field, value, valid) => {
-          const { state } = this.props
+          console.log('field, value, valid: ', field, value, valid)
           this.setState({
-            ...state,
+            ...this.state,
             [field]: {
               value: value,
               valid: valid
