@@ -177,9 +177,33 @@
           }
         }
 
+        handleFormChange = (event) => {
+          const field = event.target.name
+          const value = event.target.value
+          switch (field) {
+            case "password":
+              const passwordValid = value.length > 8
+              this.updateField(field, value, passwordValid)
+              break;
+            default:
+
+          }
+        }
+
+        updateField = (field, value, valid) => {
+          const { state } = this.props
+          this.setState({
+            ...state,
+            [field]: {
+              value: value,
+              valid: valid
+            }
+          })
+        }
+
         render() {
           return (
-            <form method='post' action=''>
+            <form method='post' action='' onChange={this.handleFormChange}>
                 <h1>Fill out this awesome form</h1>
                 <fieldset>
                     <h3>Your details</h3>
