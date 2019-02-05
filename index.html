@@ -190,6 +190,10 @@
               const passwordValid = value.length > 8
               this.updateField(field, value, passwordValid)
               break;
+            case "colour":
+              const colourValid = value != ''
+              this.updateField(field, value, colourValid)
+              break;
             default:
 
           }
