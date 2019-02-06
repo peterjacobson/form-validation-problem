@@ -236,11 +236,6 @@
         }
 
         updateField = (field, value, valid) => {
-          console.log('###################');
-          console.log('field: ', field)
-          console.log('value: ', value)
-          console.log('valid: ', valid)
-          console.log('###################');
           this.setState({
             ...this.state,
             [field]: {
@@ -250,9 +245,14 @@
           })
         }
 
+        handleSubmit = (event) => {
+          const formIsValid = Object.keys(this.state).filter( key => this.state[key].valid != true).length === 0;
+          if (!formIsValid) event.preventDefault()
+        }
+
         render() {
           return (
-            <form method='post' action='' onChange={this.handleFormChange}>
+            <form method='post' action='' onChange={this.handleFormChange} onSubmit={this.handleSubmit}>
                 <h1>Fill out this awesome form</h1>
                 <fieldset>
                     <h3>Your details</h3>
