@@ -1,17 +1,28 @@
-# Peter's solution
+# Peter Jacobson's solution
 ## Approach
 Use plain React. With just two hours I'll pull in react from a CDN and focus on implementing clean, readable validations.
 I prefer writing easily readable code over comments, so will endeavour to make my code self-documenting.
+
+## Technology
+React reasonably handles live updating.
+In a real project for a form I'd likely use a well supported form library like https://www.npmjs.com/package/informed or https://www.npmjs.com/package/react-redux-form.
+React can be slow with unnecessary updating without performance checks via flamegraphs - I'd check these and remove unnecessary component re-renders.
+I'd also consider using Redux for state mananagement instead of local react component state depending on other UI & app context.
+React took a little while to setup, but makes adding functionality easy when implemented well.
 
 ## Tooling
  - Serving: (npm) live-server to hot-reload the code for quicker dev.
  - Editor: Atom-Beta, which has excellent syntax highlighting. I have a number of custom snippets to speed my coding.
  - Debugging: Using the Google Chrome React Extension
 
+## Documentation
+ - Mostly through writing well named & readable code
+ - Also through succinct and descriptive git commits
 
+## Testing
+ - If this was in context of a full react app, I'd TDD the form validations in Jest a separate file and import them.
 
-
-
+# End of Peter's solution
 
 
 # [Form validation problem](https://springload.github.io/form-validation-problem/)
