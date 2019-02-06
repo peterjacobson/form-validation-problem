@@ -264,13 +264,13 @@
                         <label className='label' htmlFor='email'>
                             Email
                         </label>
-                        <input type='text' id='email' name='email'/>
+                        <input type='text' id='email' name='email' aria-required="true" aria-invalid={!this.state.email.valid}/>
                     </p>
                     <p className={!this.state.password.valid && this.state.submitAttempted ? 'error' : ''}>
                         <label className='label' htmlFor='password'>
                             Password
                         </label>
-                        <input className='error' type='password' id='password' name='password'/>
+                        <input className='error' type='password' id='password' name='password' aria-required="true" aria-invalid={!this.state.password.valid}/>
                     </p>
                 </fieldset>
 
@@ -280,7 +280,7 @@
                         <label className='label' htmlFor='colour'>
                             Colour
                         </label>
-                        <select name='colour' id='colour'>
+                        <select name='colour' id='colour' aria-required="true" aria-invalid={!this.state.colour.valid}>
                             <option value=''>Choose colour</option>
                             <option value='blue'>Blue</option>
                             <option value='green'>Green</option>
@@ -289,37 +289,37 @@
                             <option value='brown'>Brown</option>
                         </select>
                     </p>
-                    <p className={!this.state.animals.valid && this.state.submitAttempted ? 'error' : ''}>
-                        <span className="label">
-                            Animal
-                        </span>
+                    <fieldset aria-required="true" aria-invalid={!this.state.animals.valid}>
+                      <p className={!this.state.animals.valid && this.state.submitAttempted ? 'error' : ''}>
+                          <span className="label">
+                              Animal
+                          </span>
+                          <input type='checkbox' name='animal' value='bear' id='bear' aria-checked={this.state.animals.value.includes('bear')}/>
+                          <label htmlFor='bear'>
+                               Bear
+                          </label>
 
-                        <input type='checkbox' name='animal' value='bear' id='bear'/>
-                        <label htmlFor='bear'>
-                             Bear
-                        </label>
+                          <input type='checkbox' name='animal' value='tiger' id='tiger' aria-checked={this.state.animals.value.includes('tiger')}/>
+                          <label htmlFor='tiger'>
+                              Tiger
+                          </label>
 
-                        <input type='checkbox' name='animal' value='tiger' id='tiger'/>
-                        <label htmlFor='tiger'>
-                            Tiger
-                        </label>
+                          <input type='checkbox' name='animal' value='snake' id='snake' aria-checked={this.state.animals.value.includes('snake')}/>
+                          <label htmlFor='snake'>
+                               Snake
+                          </label>
 
-                        <input type='checkbox' name='animal' value='snake' id='snake'/>
-                        <label htmlFor='snake'>
-                             Snake
-                        </label>
-
-                        <input type='checkbox' name='animal' value='donkey' id='donkey'/>
-                        <label htmlFor='donkey'>
-                             Donkey
-                        </label>
-
-                    </p>
+                          <input type='checkbox' name='animal' value='donkey' id='donkey'  aria-checked={this.state.animals.value.includes('donkey')}/>
+                          <label htmlFor='donkey'>
+                               Donkey
+                          </label>
+                      </p>
+                    </fieldset>
                     <p className={!this.state.typeOfTiger.valid && this.state.submitAttempted ? 'error' : ''}>
                         <label className='label' htmlFor='tiger_type'>
                             Type of tiger
                         </label>
-                        <input type='text' name='tiger_type' id='tiger_type'/>
+                        <input type='text' name='tiger_type' id='tiger_type' aria-required={this.state.animals.value.includes('tiger')} aria-invalid={!this.state.typeOfTiger.valid}/>
                     </p>
                 </fieldset>
                 <fieldset>
@@ -339,8 +339,8 @@
     </script>
 </head>
 
-<body>
-  <div id="react-container">
+<body role="none">
+  <div id="react-container" role="none">
   </div>
   <div id="progressive-web-remove-on-js-load">
     <form method='post' action=''>
